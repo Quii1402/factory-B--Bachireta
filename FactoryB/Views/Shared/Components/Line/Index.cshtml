@@ -1,0 +1,12 @@
+﻿﻿@{
+    List<FactoryB.Models.LineModel> lines = Model;
+}
+
+<select class="form-select form-select-solid" id="select_line" data-control="select2" data-placeholder="chọn chuyền"
+        data-allow-clear="true" name="select_line" onchange="ChangeLine()">
+    <option></option>
+    @foreach (var item in lines)
+    {
+        <option value="@item.line_code">@item.line_name</option>
+    }
+</select>

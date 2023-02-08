@@ -1,0 +1,13 @@
+﻿﻿@{
+    List<FactoryB.Models.LocationModel> locations = Model;
+}
+
+<select class="form-select form-select-solid" id="select_location" data-control="select2" data-placeholder="chọn vị trí"
+        data-allow-clear="true" name="select_location">
+    <option></option>
+    @foreach (var item in locations)
+    {
+        <option value="@item.location_code">@item.location_code</option>
+    }
+</select>
+

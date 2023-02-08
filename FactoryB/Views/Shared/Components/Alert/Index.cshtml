@@ -1,0 +1,39 @@
+﻿@{
+    var type = "";
+    switch (ViewData["AlertTitle"])
+    {
+        case ("Warning"): type = "warning"; break;
+        case ("Error"): type = "danger"; break;
+        case ("Information"): type = "information"; break;
+        default: type = "primary"; break;
+    }
+}
+
+<!--begin::Alert-->
+<div class="alert alert-@type alert-dismissible d-flex align-items-center p-5 mb-5">
+    <!--begin::Svg Icon-->
+    <span class="svg-icon svg-icon-2hx svg-icon-@type me-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black" />
+            <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black" />
+            <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black" />
+        </svg>
+    </span>
+    <!--end::Svg Icon-->
+    <div class="d-flex flex-column">
+        <h4 class="mb-1 text-@type">@ViewData["AlertTitle"]</h4>
+        <span>@ViewData["AlertContent"]</span>
+    </div>
+
+    <!--begin::Close-->
+    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+        <span class="svg-icon svg-icon-2x svg-icon-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path opacity="0.3" d="M6 19.7C5.7 19.7 5.5 19.6 5.3 19.4C4.9 19 4.9 18.4 5.3 18L18 5.3C18.4 4.9 19 4.9 19.4 5.3C19.8 5.7 19.8 6.29999 19.4 6.69999L6.7 19.4C6.5 19.6 6.3 19.7 6 19.7Z" fill="black" />
+                <path d="M18.8 19.7C18.5 19.7 18.3 19.6 18.1 19.4L5.40001 6.69999C5.00001 6.29999 5.00001 5.7 5.40001 5.3C5.80001 4.9 6.40001 4.9 6.80001 5.3L19.5 18C19.9 18.4 19.9 19 19.5 19.4C19.3 19.6 19 19.7 18.8 19.7Z" fill="black" />
+            </svg>
+        </span>
+    </button>
+    <!--end::Close-->
+</div>
+<!--end::Alert-->

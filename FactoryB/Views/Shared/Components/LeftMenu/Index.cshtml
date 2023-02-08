@@ -1,0 +1,150 @@
+﻿@{
+    KDTVN_Shared.Models.AccountExtend account = Model;
+}
+
+<!--begin::Aside Menu-->
+<div class="hover-scroll-overlay-y px-2 my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="{default: '#kt_aside_toolbar, #kt_aside_footer', lg: '#kt_header, #kt_aside_toolbar, #kt_aside_footer'}" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="5px">
+    <!--begin::Menu-->
+    <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+        <div class="menu-item">
+            <div class="menu-content pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Màn Hình Yêu Cầu</span>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" is-active-route asp-action="Index" asp-controller="ScreenRequest">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="https://icon-svg.com/#!/show/exclamation-mark-circle" viewBox="0 0 16 16" style="display: block; height: inherit;" fill="none">
+                            <path opacity="0.3" d="M 8 0 A 8 8 0 0 0 0 8 A 8 8 0 0 0 8 16 A 8 8 0 0 0 16 8 A 8 8 0 0 0 8 0 z M 7.5 3 L 8.5 3 C 9.0305634 3.0005868 9.4407543 3.4657141 9.375 3.9921875 L 9.0625 8.5039062 C 9.0270266 8.7875094 8.7858129 9.000246 8.5 9 L 7.5 9 C 7.2141871 9.000246 6.9729734 8.7875094 6.9375 8.5039062 L 6.625 3.9921875 C 6.5592457 3.4657141 6.9694366 3.0005868 7.5 3 z M 8 10 C 8.8284271 10 9.5 10.671573 9.5 11.5 C 9.5 12.328427 8.8284271 13 8 13 C 7.1715729 13 6.5 12.328427 6.5 11.5 C 6.5 10.671573 7.1715729 10 8 10 z " fill="currentColor" />
+                        </svg>
+                    </span>
+                </span>
+                <span class="menu-title">Màn Hình Yêu Cầu</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <div class="menu-content pt-8 pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Quản Lý Kho</span>
+            </div>
+        </div>
+        <!--DASHBOARD-->
+        <div class="menu-item">
+            <a class="menu-link" is-active-route asp-action="Index" asp-controller="Home">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor" />
+                            <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Tổng Quan</span>
+            </a>
+        </div>
+        <!--STOCK MANAGEMENT-->
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+            <span class="menu-link">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="https://icon-svg.com/#!/show/house" viewBox="0 0 16 16" style="display: block; height: inherit" ; fill="none">
+                            <path opacity="0.3" d="M 8 0 L 0 8 L 1 8 L 1 15 L 1 16 L 15 16 L 15 8 L 16 8 L 13 5 L 13 2 L 11 2 L 11 3 L 8 0 z M 8 2 L 11 5 L 14 8 L 14 15 L 7 15 L 7 9 L 3 9 L 3 15 L 2 15 L 2 8 L 8 2 z M 8 4 C 7.1715729 4 6.5 4.6715729 6.5 5.5 C 6.5 6.3284271 7.1715729 7 8 7 C 8.8284271 7 9.5 6.3284271 9.5 5.5 C 9.5 4.6715729 8.8284271 4 8 4 z M 8 9 L 8 14 L 13 14 L 13 9 L 8 9 z M 4 10 L 6 10 L 6 15 L 4 15 L 4 10 z M 9 10 L 10 10 L 10 11 L 9 11 L 9 10 z M 11 10 L 12 10 L 12 11 L 11 11 L 11 10 z M 9 12 L 10 12 L 10 13 L 9 13 L 9 12 z M 11 12 L 12 12 L 12 13 L 11 13 L 11 12 z " fill="currentColor" />
+
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+
+                </span>
+                <span class="menu-title">Quản Lý Kho</span>
+                <span class="menu-arrow"></span>
+            </span>
+            <div class="menu-sub menu-sub-accordion">
+                <div class="menu-item">
+                    <a class="menu-link" is-active-route asp-action="Index" asp-controller="InStock">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Nhập Kho</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" is-active-route asp-action="Index" asp-controller="Outstock">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Xuất Kho</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--Request Management-->
+        <div class="menu-item">
+            <a class="menu-link" is-active-route asp-action="Index" asp-controller="RequestList">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="https://icon-svg.com/#!/show/clipboard-check-list" viewBox="0 0 16 16" style="display: block; height: inherit;" fill="none">
+                            <path opacity="0.3" d="M 8 0 A 2 2 0 0 0 6 2 L 5 2 L 5 3 L 4 3 C 2.892 3 2 3.892 2 5 L 2 14 C 2 15.108 2.892 16 4 16 L 12 16 C 13.108 16 14 15.108 14 14 L 14 5 C 14 3.892 13.108 3 12 3 L 11 3 L 11 2 L 10 2 A 2 2 0 0 0 8 0 z M 8 1 A 1 1 0 0 1 9 2 A 1 1 0 0 1 8 3 A 1 1 0 0 1 7 2 A 1 1 0 0 1 8 1 z M 4 4 L 5 4 C 5 4.554 5.446 5 6 5 L 10 5 C 10.554 5 11 4.554 11 4 L 12 4 C 12.554 4 13 4.446 13 5 L 13 14 C 13 14.554 12.554 15 12 15 L 4 15 C 3.446 15 3 14.554 3 14 L 3 5 C 3 4.446 3.446 4 4 4 z M 4 6 L 4 8 L 6 8 L 6 6 L 4 6 z M 4.5 6.5 L 5.5 6.5 L 5.5 7.5 L 4.5 7.5 L 4.5 6.5 z M 7.25 6.5 A 0.25 0.25 0 0 0 7 6.75 L 7 7.25 A 0.25 0.25 0 0 0 7.25 7.5 L 11.75 7.5 A 0.25 0.25 0 0 0 12 7.25 L 12 6.75 A 0.25 0.25 0 0 0 11.75 6.5 L 7.25 6.5 z M 4 9 L 4 11 L 6 11 L 6 9 L 4 9 z M 4.5 9.5 L 5.5 9.5 L 5.5 10.5 L 4.5 10.5 L 4.5 9.5 z M 7.25 9.5 A 0.25 0.25 0 0 0 7 9.75 L 7 10.25 A 0.25 0.25 0 0 0 7.25 10.5 L 11.75 10.5 A 0.25 0.25 0 0 0 12 10.25 L 12 9.75 A 0.25 0.25 0 0 0 11.75 9.5 L 7.25 9.5 z M 4 12 L 4 14 L 6 14 L 6 12 L 4 12 z M 4.5 12.5 L 5.5 12.5 L 5.5 13.5 L 4.5 13.5 L 4.5 12.5 z M 7.25 12.5 A 0.25 0.25 0 0 0 7 12.75 L 7 13.25 A 0.25 0.25 0 0 0 7.25 13.5 L 11.75 13.5 A 0.25 0.25 0 0 0 12 13.25 L 12 12.75 A 0.25 0.25 0 0 0 11.75 12.5 L 7.25 12.5 z " fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Quản lý yêu cầu</span>
+            </a>
+        </div>
+        <!--.Category Management-->
+         <div class="menu-item">
+            <a class="menu-link" is-active-route asp-action="Index" asp-controller="Location">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="https://icon-svg.com/#!/show/clipboard-check-list" viewBox="0 0 16 16" style="display: block; height: inherit;" fill="none">
+                            <path opacity="0.3" d="M 8 0 A 2 2 0 0 0 6 2 L 5 2 L 5 3 L 4 3 C 2.892 3 2 3.892 2 5 L 2 14 C 2 15.108 2.892 16 4 16 L 12 16 C 13.108 16 14 15.108 14 14 L 14 5 C 14 3.892 13.108 3 12 3 L 11 3 L 11 2 L 10 2 A 2 2 0 0 0 8 0 z M 8 1 A 1 1 0 0 1 9 2 A 1 1 0 0 1 8 3 A 1 1 0 0 1 7 2 A 1 1 0 0 1 8 1 z M 4 4 L 5 4 C 5 4.554 5.446 5 6 5 L 10 5 C 10.554 5 11 4.554 11 4 L 12 4 C 12.554 4 13 4.446 13 5 L 13 14 C 13 14.554 12.554 15 12 15 L 4 15 C 3.446 15 3 14.554 3 14 L 3 5 C 3 4.446 3.446 4 4 4 z M 4 6 L 4 8 L 6 8 L 6 6 L 4 6 z M 4.5 6.5 L 5.5 6.5 L 5.5 7.5 L 4.5 7.5 L 4.5 6.5 z M 7.25 6.5 A 0.25 0.25 0 0 0 7 6.75 L 7 7.25 A 0.25 0.25 0 0 0 7.25 7.5 L 11.75 7.5 A 0.25 0.25 0 0 0 12 7.25 L 12 6.75 A 0.25 0.25 0 0 0 11.75 6.5 L 7.25 6.5 z M 4 9 L 4 11 L 6 11 L 6 9 L 4 9 z M 4.5 9.5 L 5.5 9.5 L 5.5 10.5 L 4.5 10.5 L 4.5 9.5 z M 7.25 9.5 A 0.25 0.25 0 0 0 7 9.75 L 7 10.25 A 0.25 0.25 0 0 0 7.25 10.5 L 11.75 10.5 A 0.25 0.25 0 0 0 12 10.25 L 12 9.75 A 0.25 0.25 0 0 0 11.75 9.5 L 7.25 9.5 z M 4 12 L 4 14 L 6 14 L 6 12 L 4 12 z M 4.5 12.5 L 5.5 12.5 L 5.5 13.5 L 4.5 13.5 L 4.5 12.5 z M 7.25 12.5 A 0.25 0.25 0 0 0 7 12.75 L 7 13.25 A 0.25 0.25 0 0 0 7.25 13.5 L 11.75 13.5 A 0.25 0.25 0 0 0 12 13.25 L 12 12.75 A 0.25 0.25 0 0 0 11.75 12.5 L 7.25 12.5 z " fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Quản lý mã giá</span>
+            </a>
+        </div>
+
+        <!--BOM-->
+        <div class="menu-item">
+            <a class="menu-link" is-active-route asp-action="Index" asp-controller="Bom">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="https://icon-svg.com/#!/show/clipboard-check-list" viewBox="0 0 16 16" style="display: block; height: inherit;" fill="none">
+                            <path opacity="0.3" d="M 8 0 A 2 2 0 0 0 6 2 L 5 2 L 5 3 L 4 3 C 2.892 3 2 3.892 2 5 L 2 14 C 2 15.108 2.892 16 4 16 L 12 16 C 13.108 16 14 15.108 14 14 L 14 5 C 14 3.892 13.108 3 12 3 L 11 3 L 11 2 L 10 2 A 2 2 0 0 0 8 0 z M 8 1 A 1 1 0 0 1 9 2 A 1 1 0 0 1 8 3 A 1 1 0 0 1 7 2 A 1 1 0 0 1 8 1 z M 4 4 L 5 4 C 5 4.554 5.446 5 6 5 L 10 5 C 10.554 5 11 4.554 11 4 L 12 4 C 12.554 4 13 4.446 13 5 L 13 14 C 13 14.554 12.554 15 12 15 L 4 15 C 3.446 15 3 14.554 3 14 L 3 5 C 3 4.446 3.446 4 4 4 z M 4 6 L 4 8 L 6 8 L 6 6 L 4 6 z M 4.5 6.5 L 5.5 6.5 L 5.5 7.5 L 4.5 7.5 L 4.5 6.5 z M 7.25 6.5 A 0.25 0.25 0 0 0 7 6.75 L 7 7.25 A 0.25 0.25 0 0 0 7.25 7.5 L 11.75 7.5 A 0.25 0.25 0 0 0 12 7.25 L 12 6.75 A 0.25 0.25 0 0 0 11.75 6.5 L 7.25 6.5 z M 4 9 L 4 11 L 6 11 L 6 9 L 4 9 z M 4.5 9.5 L 5.5 9.5 L 5.5 10.5 L 4.5 10.5 L 4.5 9.5 z M 7.25 9.5 A 0.25 0.25 0 0 0 7 9.75 L 7 10.25 A 0.25 0.25 0 0 0 7.25 10.5 L 11.75 10.5 A 0.25 0.25 0 0 0 12 10.25 L 12 9.75 A 0.25 0.25 0 0 0 11.75 9.5 L 7.25 9.5 z M 4 12 L 4 14 L 6 14 L 6 12 L 4 12 z M 4.5 12.5 L 5.5 12.5 L 5.5 13.5 L 4.5 13.5 L 4.5 12.5 z M 7.25 12.5 A 0.25 0.25 0 0 0 7 12.75 L 7 13.25 A 0.25 0.25 0 0 0 7.25 13.5 L 11.75 13.5 A 0.25 0.25 0 0 0 12 13.25 L 12 12.75 A 0.25 0.25 0 0 0 11.75 12.5 L 7.25 12.5 z " fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Quản lý Bom</span>
+            </a>
+        </div>
+
+        <div class="menu-item">
+            <a class="menu-link" is-active-route asp-action="Index" asp-controller="ProductSchedule">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen051.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="https://icon-svg.com/#!/show/clipboard-check-list" viewBox="0 0 16 16" style="display: block; height: inherit;" fill="none">
+                            <path opacity="0.3" d="M 8 0 A 2 2 0 0 0 6 2 L 5 2 L 5 3 L 4 3 C 2.892 3 2 3.892 2 5 L 2 14 C 2 15.108 2.892 16 4 16 L 12 16 C 13.108 16 14 15.108 14 14 L 14 5 C 14 3.892 13.108 3 12 3 L 11 3 L 11 2 L 10 2 A 2 2 0 0 0 8 0 z M 8 1 A 1 1 0 0 1 9 2 A 1 1 0 0 1 8 3 A 1 1 0 0 1 7 2 A 1 1 0 0 1 8 1 z M 4 4 L 5 4 C 5 4.554 5.446 5 6 5 L 10 5 C 10.554 5 11 4.554 11 4 L 12 4 C 12.554 4 13 4.446 13 5 L 13 14 C 13 14.554 12.554 15 12 15 L 4 15 C 3.446 15 3 14.554 3 14 L 3 5 C 3 4.446 3.446 4 4 4 z M 4 6 L 4 8 L 6 8 L 6 6 L 4 6 z M 4.5 6.5 L 5.5 6.5 L 5.5 7.5 L 4.5 7.5 L 4.5 6.5 z M 7.25 6.5 A 0.25 0.25 0 0 0 7 6.75 L 7 7.25 A 0.25 0.25 0 0 0 7.25 7.5 L 11.75 7.5 A 0.25 0.25 0 0 0 12 7.25 L 12 6.75 A 0.25 0.25 0 0 0 11.75 6.5 L 7.25 6.5 z M 4 9 L 4 11 L 6 11 L 6 9 L 4 9 z M 4.5 9.5 L 5.5 9.5 L 5.5 10.5 L 4.5 10.5 L 4.5 9.5 z M 7.25 9.5 A 0.25 0.25 0 0 0 7 9.75 L 7 10.25 A 0.25 0.25 0 0 0 7.25 10.5 L 11.75 10.5 A 0.25 0.25 0 0 0 12 10.25 L 12 9.75 A 0.25 0.25 0 0 0 11.75 9.5 L 7.25 9.5 z M 4 12 L 4 14 L 6 14 L 6 12 L 4 12 z M 4.5 12.5 L 5.5 12.5 L 5.5 13.5 L 4.5 13.5 L 4.5 12.5 z M 7.25 12.5 A 0.25 0.25 0 0 0 7 12.75 L 7 13.25 A 0.25 0.25 0 0 0 7.25 13.5 L 11.75 13.5 A 0.25 0.25 0 0 0 12 13.25 L 12 12.75 A 0.25 0.25 0 0 0 11.75 12.5 L 7.25 12.5 z " fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Thứ tự sản xuất</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!--end::Menu-->
+<!--end::Aside Menu-->

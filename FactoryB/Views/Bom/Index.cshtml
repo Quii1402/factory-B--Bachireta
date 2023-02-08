@@ -1,0 +1,341 @@
+﻿@{
+    ViewData["ParentTitle"] = "BOM";
+    ViewData["Title"] = "BOM";
+}
+
+@section Styles {
+    <!--begin::Page Vendor Stylesheets(used by this page)-->
+    <link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+
+    <!--CSS-->
+
+}
+
+    <div class="card shadow-sm mb-5">
+        <div class="card-header collapsible cursor-pointer rotate" data-bs-toggle="collapse" data-bs-target="#kt_docs_card_collapsible">
+            <h3 class="card-title">Bộ lọc</h3>
+            <div class="card-toolbar rotate-180">
+                <span class="svg-icon svg-icon-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="black"></path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div id="kt_docs_card_collapsible" class="collapse show">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="row">
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-5 col-lg-4 col-md-6">
+                                <label class="form-label">Mã thành phẩm</label>
+                                <input type="text" id="inp-product-item" class="form-control form-control-solid" placeholder="nhập mã thành phẩm">
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-5 col-lg-4 col-md-6">
+                                <label class="form-label">Mã linh kiện</label>
+                                <input type="text" id="inp-parts-item" class="form-control form-control-solid" placeholder="nhập mã linh kiện">
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-5 col-lg-4 col-md-6">
+                                <label class="form-label">Tên linh kiện</label>
+                                <input type="text" id="inp-type-item" class="form-control form-control-solid" placeholder="nhập tên linh kiện">
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-start">
+                        <button type="button" class="btn btn-primary" id="search-btn">
+                            <span class="indicator-label">
+                                <span class="svg-icon svg-icon-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M21.7 18.9L18.6 15.8C17.9 16.9 16.9 17.9 15.8 18.6L18.9 21.7C19.3 22.1 19.9 22.1 20.3 21.7L21.7 20.3C22.1 19.9 22.1 19.3 21.7 18.9Z" fill="black"></path>
+                                        <path opacity="0.3" d="M11 20C6 20 2 16 2 11C2 6 6 2 11 2C16 2 20 6 20 11C20 16 16 20 11 20ZM11 4C7.1 4 4 7.1 4 11C4 14.9 7.1 18 11 18C14.9 18 18 14.9 18 11C18 7.1 14.9 4 11 4ZM8 11C8 9.3 9.3 8 11 8C11.6 8 12 7.6 12 7C12 6.4 11.6 6 11 6C8.2 6 6 8.2 6 11C6 11.6 6.4 12 7 12C7.6 12 8 11.6 8 11Z" fill="black"></path>
+                                    </svg> Tim kiếm
+                                </span>
+                            </span>
+                            <span class="indicator-progress">
+                                Vui lòng đợi... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*begin::Result*@
+    <div class="card shadow-sm">
+        <div class="card-header px-5">
+            <div class="card-title">
+                <div class="d-flex align-items-center position-relative">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                    <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                            <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <input type="text" id="input_search" class="form-control form-control-solid w-250px ps-10" placeholder="tim kiếm" />
+                </div>
+            </div>
+            <div class="card-toolbar">
+
+                <button class="btn btn-primary me-3 ps-5" id="btn_upload_icm">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                    <span class="svg-icon svg-icon-2 m-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="currentColor" />
+                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->Thêm linh kiện
+                </button>
+
+                <!--begin::Filter-->
+                <button type="button" class="btn btn-light-primary px-4" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                    <span class="svg-icon svg-icon-2 m-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1" transform="rotate(90 12.75 4.25)" fill="currentColor" />
+                            <path d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z" fill="currentColor" />
+                            <path d="M18.75 8.25H17.75C17.1977 8.25 16.75 8.69772 16.75 9.25C16.75 9.80228 17.1977 10.25 17.75 10.25C18.3023 10.25 18.75 10.6977 18.75 11.25V18.25C18.75 18.8023 18.3023 19.25 17.75 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V11.25C4.75 10.6977 5.19771 10.25 5.75 10.25C6.30229 10.25 6.75 9.80228 6.75 9.25C6.75 8.69772 6.30229 8.25 5.75 8.25H4.75C3.64543 8.25 2.75 9.14543 2.75 10.25V19.25C2.75 20.3546 3.64543 21.25 4.75 21.25H18.75C19.8546 21.25 20.75 20.3546 20.75 19.25V10.25C20.75 9.14543 19.8546 8.25 18.75 8.25Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </button>
+                <!--begin::Menu 1-->
+                <div class="menu menu-sub menu-sub-dropdown mt-3" data-kt-menu="true">
+                    <!--begin::Header-->
+                    <div class="px-7 py-5">
+                        <div class="fs-5 text-dark fw-bolder">Xuất file</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Separator-->
+                    <div class="separator border-gray-200"></div>
+                    <!--end::Separator-->
+                    <!--begin::Content-->
+                    <div class="px-7 py-5">
+                        <div id="dt_tools"></div>
+                    </div>
+                    <!--end::Content-->
+                </div>
+                <!--end::Menu 1-->
+                <!--end::Filter-->
+
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="tbBom" class="table table-striped border rounded gy-5 gs-7">
+                <thead>
+                    <tr class="fw-bold fs-6 text-gray-800">
+                        <th>Mã thành phẩm</th>
+                        <th>Mã linh kiện</th>
+                        <th>Tên linh kiện</th>
+                        <th>Chủng loại thùng</th>
+                        <th>Số lượng </th>                    
+                        <th>Trạng thái</th>
+                        <th>Người tạo</th>
+                        <th>Thời gian tạo</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 fw-bold">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    @*end::Result*@
+
+
+    <!--Edit ở  code kho C-->
+    <div class="modal fade" tabindex="-1" style="width:100%;" id="kt-modal-edit">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-content-edit">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thay đổi thông tin</h5>
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" onclick="closeEditModal()" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
+                                <rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="currentColor"></rect>
+                                <rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="currentColor"></rect>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex row mb-3">
+                        <div class="input-group mb-5">
+                            <label class="col-2 col-form-label" for="lbl-product-item">Mã thành phẩm</label>
+                            <label class="input-group-text" style="border-radius:0%" id="ID-product-item">  </label>
+                            <input style="display:none" id="inp-product-item-edit" placeholder="Nhập mã thành phẩm" />
+                        </div>
+                        <div class="input-group mb-5">
+                            <label class="col-2 col-form-label" for="lbl-parts-item">Mã linh kiện</label>
+                            <label class="input-group-text" style="border-radius:0%" id="ID-parts-item">  </label>
+                            <input style="display:none" id="inp-parts-item-edit" placeholder="Nhap ID" />
+                        </div>
+                    </div>
+                    <div class="input-group mb-5">
+                        <label class="col-2 col-form-label" for="lbl-parts-item">Tên linh kiện</label>
+                        <label class="input-group-text" style="border-radius:0%" id="lbl-type-item-edit">  </label>
+                        <input style="display:none" id="inp-type-item-edit" placeholder="Nhap mã" />
+                    </div>
+
+                   @* <div class="row mb-3">
+                        <div class="col-12 row">
+                            <div class="input-group mb-5">
+                                <label for="lbl-type-item-modal-edit" class="col-2 col-form-label">Mã loại</label>
+                                <span class="input-group-text" id="lbl-type-item-edit"> </span>
+                                <span class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <input id="inp-type-item-edit" style="min-width:120px" type="text" class="form-control" placeholder="Mã loại mới" aria-label="">
+                            </div>
+                        </div>
+                    </div>*@
+
+
+                    <div class="row mb-3">
+                        <div class="col-12 row">
+                            <div class="input-group mb-5">
+                                <label for="lbl-box_qty-modal-edit" class="col-2 col-form-label">Chủng loại thùng</label>
+                                <span class="input-group-text" id="lbl-box-type-edit"> </span>
+                                <span class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <input id="inp-box-type-edit"  type="text" class="form-control" placeholder="Chủng loại thùng mới" aria-label="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-12 row">
+                            <div class="input-group mb-5">
+                                <label for="lbl-item-qty-modal-edit" class="col-2 col-form-label">Số Lượng </label>
+                                <span class="input-group-text" id="lbl-qty-per-box-edit"> </span>
+                                <span class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <input id="inp-qty-per-box-edit" style="min-width:120px" type="number" class="form-control" placeholder="Số Lượng mới" aria-label="">
+                            </div>
+                        </div>
+                    </div>
+
+                @*<div class="row mb-3">
+                    <div class="col-12 row">
+                        <div class="input-group mb-5">
+                            <label for="lbl-description-modal-edit" class="col-2 col-form-label">Ghi chú</label>
+                            <span class="input-group-text" id="lbl-description-edit"> </span>
+                            <span class="input-group-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                                <input id="inp-description-edit" style="min-width:120px" type="text" class="form-control" placeholder="Ghi chú mới" aria-label="">
+                        </div>
+                    </div>
+                </div>*@
+                </div>
+                <div class="modal-footer">
+                    <div class="fv-row mb col-sm col-md">
+                        <button type="button" id="btn-close" class="btn btn-light" onclick="closeEditModal()">Đóng</button>
+
+                    </div>
+                    <div class="fv-row mb col-sm col-md">                      
+                        <button type="button" style="float:right" class="btn btn-primary" id="btn-update">Cập nhật</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--begin:Upload ItemCodeManager Modal-->
+    <div class="modal fade" tabindex="-1" id="upl-item-code-manager-modal" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tải lên danh sách list linh kiện</h5>
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+                <div class="modal-body">
+                    <h4 class="card-title">Danh sách linh kiện</h4>
+                    <p class="text-muted">Tệp được tải lên cần có định dạng đúng như tệp mẫu sau: <a href="~/template/bom.xlsx">bom.xlsx</a></p>
+
+                    <!--begin::Dropzone-->
+                    <div class="dropzone" id="kt_file_upload_icm">
+                        <!--begin::Message-->
+                        <div class="dz-message needsclick">
+                            <!--begin::Icon-->
+                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                            <!--end::Icon-->
+                            <!--begin::Info-->
+                            <div class="ms-4">
+                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Thả tệp vào đây hoặc nhấp để tải lên.</h3>
+                                <span class="fs-7 fw-bold text-gray-400">Mỗi lần chỉ tải lên 1 tệp</span>
+                            </div>
+                            <!--end::Info-->
+                        </div>
+                    </div>
+                    <!--end::Dropzone-->
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="btn_insert">
+                        <span class="indicator-label">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 22H3C2.4 22 2 21.6 2 21C2 20.4 2.4 20 3 20H21C21.6 20 22 20.4 22 21C22 21.6 21.6 22 21 22ZM11 6.59998V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V6.59998H11Z" fill="black" />
+                                    <path opacity="0.3" d="M7 6.59999H17L12.7 2.3C12.3 1.9 11.7 1.9 11.3 2.3L7 6.59999Z" fill="black" />
+                                </svg> Tải lên
+                            </span>
+                        </span>
+                        <span class="indicator-progress">
+                            Xin vui lòng đợi... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end:Upload ItemCodeManager Modal-->
+
+
+ @section Scripts {
+    <!--begin::Page Vendors Javascript(used by this page)-->
+    <script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="~/js/bom/bom.js"></script>
+    <!--end::Page Vendors Javascript-->
+    }

@@ -1,0 +1,12 @@
+﻿@{
+    List<FactoryB.Models.BomModel> boms = Model;
+}
+
+<select class="form-select form-select-solid" id="select_item" data-control="select2" data-placeholder="chọn mã linh kiện"
+        data-allow-clear="true" name="select_item">
+    <option></option>
+    @foreach (var item in boms)
+    {
+        <option value="@item.parts_item">@item.parts_item</option>
+    }
+</select>

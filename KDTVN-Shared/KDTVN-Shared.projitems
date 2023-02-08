@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a9556dfe-bfff-4929-8f62-f3f32f862159</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>KDTVN_Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\DBConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Information.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\SQLHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Utility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Account.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Address.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Degree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Department.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\District.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Division.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Employee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Ethnic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Gender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IDCardIssueBy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\MaritalStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Province.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\School.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Skill.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Ward.cs" />
+  </ItemGroup>
+</Project>

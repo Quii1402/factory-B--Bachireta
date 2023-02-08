@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryB", "FactoryB\FactoryB.csproj", "{98DF6841-7056-48C5-9F65-436618242F55}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "KDTVN-Shared", "KDTVN-Shared\KDTVN-Shared.shproj", "{A9556DFE-BFFF-4929-8F62-F3F32F862159}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98DF6841-7056-48C5-9F65-436618242F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DF6841-7056-48C5-9F65-436618242F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DF6841-7056-48C5-9F65-436618242F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DF6841-7056-48C5-9F65-436618242F55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FE2E63C-5A57-469B-B4EB-D7BCD409FC29}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		KDTVN-Shared\KDTVN-Shared.projitems*{98df6841-7056-48c5-9f65-436618242f55}*SharedItemsImports = 5
+		KDTVN-Shared\KDTVN-Shared.projitems*{a9556dfe-bfff-4929-8f62-f3f32f862159}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,172 @@
+﻿﻿@{
+    ViewData["ParentTitle"] = "Khác";
+    ViewData["Title"] = "Thứ tự sản xuất";
+}
+
+@section Styles {
+}
+
+    @section Scripts {
+    <script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="~/js/productschedule/product.js"></script>
+}
+
+    <div class="card shadow-sm mb-5">
+        <div class="card-header collapsible cursor-pointer rotate" data-bs-toggle="collapse" data-bs-target="#kt_docs_card_collapsible">
+            <h3 class="card-title">Bộ lọc</h3>
+            <div class="card-toolbar rotate-180">
+                <span class="svg-icon svg-icon-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="black"></path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div id="kt_docs_card_collapsible" class="collapse show">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="row">
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-5 col-lg-4 col-md-6">
+                                <label class="form-label">Chuyền</label>
+                                @await Component.InvokeAsync("LineByProduct")
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-5 col-lg-4 col-md-6">
+                                <label class="form-label">Mã thành phẩm</label>
+                                <input type="text" id="inp-product-item" class="form-control form-control-solid" placeholder="nhập mã thành phẩm">
+                            </div>
+                            <!--end::Input group-->
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-start">
+                        <button type="button" class="btn btn-primary" id="search-btn">
+                            <span class="indicator-label">
+                                <span class="svg-icon svg-icon-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M21.7 18.9L18.6 15.8C17.9 16.9 16.9 17.9 15.8 18.6L18.9 21.7C19.3 22.1 19.9 22.1 20.3 21.7L21.7 20.3C22.1 19.9 22.1 19.3 21.7 18.9Z" fill="black"></path>
+                                        <path opacity="0.3" d="M11 20C6 20 2 16 2 11C2 6 6 2 11 2C16 2 20 6 20 11C20 16 16 20 11 20ZM11 4C7.1 4 4 7.1 4 11C4 14.9 7.1 18 11 18C14.9 18 18 14.9 18 11C18 7.1 14.9 4 11 4ZM8 11C8 9.3 9.3 8 11 8C11.6 8 12 7.6 12 7C12 6.4 11.6 6 11 6C8.2 6 6 8.2 6 11C6 11.6 6.4 12 7 12C7.6 12 8 11.6 8 11Z" fill="black"></path>
+                                    </svg> Tim kiếm
+                                </span>
+                            </span>
+                            <span class="indicator-progress">
+                                Vui lòng đợi... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*begin::Table*@
+    <div class="card">
+        <div class="card-header px-5">
+
+            <div class="card-title">
+                <button class="btn btn-primary me-3 ps-5" id="btn_modal_add_product">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                    <span class="svg-icon svg-icon-2 m-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="currentColor" />
+                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->Thêm thứ tự sản xuất
+                </button>
+            </div>
+
+        </div>
+
+        <div class="card-body p-4">
+            <table id="table_product" class="table table-striped border rounded gy-5 gs-7">
+                <thead>
+                    <tr class="fw-bold fs-6 text-gray-800">
+                        <th class="text-center min-w-50px">ID</th>
+                        <th>Chuyền</th>
+                        <th>Mã thành phẩm</th>
+                        <th>Thứ tự sản xuất</th>
+                        <th>Trạng thái</th>
+                        <th class ="text-end min-w-100px">Chức năng</th>
+                        
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    @*end::Table*@
+
+    @*begin::Upload request list*@
+    <div class="modal fade" tabindex="-1" id="upl-product-list-modal" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tải lên danh sách yêu cầu</h5>
+
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <div class="modal-body">
+                    <h4 class="card-title">Danh sách thứ tự sản xuất</h4>
+                    <p class="text-muted">
+                        Tệp được tải lên cần có định dạng đúng như tệp mẫu sau:
+                        <a href="~/template/product-schedule-list-template.xlsx">product-schedule-list-template.xlsx</a>
+                    </p>
+
+                    <!--begin::Dropzone-->
+                    <div class="dropzone" id="kt_file_upload_pl">
+                        <!--begin::Message-->
+                        <div class="dz-message needsclick">
+                            <!--begin::Icon-->
+                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                            <!--end::Icon-->
+                            <!--begin::Info-->
+                            <div class="ms-4">
+                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Thả tệp vào đây hoặc nhấp để tải lên.</h3>
+                                <span class="fs-7 fw-bold text-gray-400">Mỗi lần chỉ tải lên 1 tệp</span>
+                            </div>
+                            <!--end::Info-->
+                        </div>
+                    </div>
+                    <!--end::Dropzone-->
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="btn_insert">
+                        <span class="indicator-label">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 22H3C2.4 22 2 21.6 2 21C2 20.4 2.4 20 3 20H21C21.6 20 22 20.4 22 21C22 21.6 21.6 22 21 22ZM11 6.59998V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V6.59998H11Z" fill="black" />
+                                    <path opacity="0.3" d="M7 6.59999H17L12.7 2.3C12.3 1.9 11.7 1.9 11.3 2.3L7 6.59999Z" fill="black" />
+                                </svg> Tải lên
+                            </span>
+                        </span>
+                        <span class="indicator-progress">
+                            Xin vui lòng đợi... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*end::Upload request list*@
+
+
+       
+
